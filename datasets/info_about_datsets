@@ -1,0 +1,19 @@
+apy.csv----- original datset
+
+
+
+apy_org.csv------ a copy of the original datset
+
+
+
+norm_data_apy----contains the noramlised(state wise) info for for 10 crops states for crops with growing area >200
+
+
+-----contains the noramlised(state wise) info for for 10 crops states for crops with growing area >200 AND WITH PROD_AREA >1(as for instance anantgram-ap only, have 500+crops)
+
+
+
+distinct_crops_apy---------distinct crops total 309 in number
+final_apy--------------lat and long included
+
+crops dataset------- contains the requirement details of th e11 crops selected...
