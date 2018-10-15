@@ -2,7 +2,7 @@ import pandas as pa
 import csv
 import statistics as stat
 #%%
-dataset=pa.read_csv('value_data.csv')
+dataset=pa.read_csv('old_datasets/value_data.csv')
 #%%
 #selecting the unique field value from the first column
 e=dataset.drop_duplicates('Element')['Element']
@@ -13,9 +13,10 @@ crops=list(crops)
 #%%
 #add crop name to the start of the headings i.e the first column name
 e=list(e)
-e.append('Crop')
+r=['Crop']
+r.extend(e)
 f=[]
-f.append(list(reversed(e)))
+f.append(r)
 
 with open('one.csv','w') as ff:
     writer=csv.writer(ff)
