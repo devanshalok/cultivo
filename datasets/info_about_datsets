@@ -23,6 +23,7 @@ food_balance----------contains data abbt production,import quantity,stock variat
 value_data------------contains info abt gross production value,net production value for 10-11 crops for 10 years.
 
 
+crop_final_details_apy----------no of rows reduced to 44k by seecting the 11 intended crops
 
 
 
@@ -40,3 +41,8 @@ one.csv---------edited version of value_data.csv
 two.csv---------edited version of FOASTAT.csv
 
 three.csv--------edited version of food_balance.csv(have to be verified)
+
+
+
+
+prod_area_red-------contains the predicted and org val of the prod_area attribute
