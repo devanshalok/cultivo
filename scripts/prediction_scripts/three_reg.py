@@ -67,3 +67,18 @@ for i in datset_crop:
     mean_exp[i]=(mean(exports[i]))
 #%%
 #    write these values in proper order in a csv file
+lll=[]
+for i in datset_crop:
+    l=[]
+    l.append(i)
+    l.append(mean_exp[i])
+    l.append(mean_imp[i])
+    l.append(mean_prod[i])
+    lll.append(l)
+    
+#%%
+popo=pa.DataFrame(lll)
+popo.to_csv('pred_three.csv')
+
+
+
