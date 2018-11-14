@@ -1,4 +1,4 @@
-Index,Crop,Gross Production Value (constant 2004-2006 1000 I$),Net Production Value (constant 2004-2006 1000 I$),Gross Production Value (current million SLC),Gross Production Value (constant 2004-2006 million SLC),Gross Production Value (current million US$),Gross Production Value (constant 2004-2006 million US$)
+id,crop,Gross_Production_Value_constant_2004_2006_1000_dollar,Net_Production_Value_constant_2004_2006_1000_dollar,Gross_Production_Value_current_million_SLC,Gross_Production_Value_constant_2004_2006_million_SLC,Gross_Production_Value_current_million_US_dollar,Gross_Production_Value_constant_2004_2006_million_US_dollar
 0,Barley,188262.83896397,160856.567931124,19756.8423023891,11856.8679226265,416.854675736914,264.132783762879
 1,Groundnuts,3242387.29810113,3066014.01328367,236843.056346125,108764.023333348,3973.55297075,2422.43314839965
 2,Maize,3041067.305641,2027230.4376006,257385.199449175,137890.053781367,5270.349156525,3067.63023298775
