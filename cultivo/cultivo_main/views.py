@@ -129,9 +129,6 @@ def work(request):
         
 
 
-def val_of_pred_area()
-
-
 def simple_upload(request):
     if request.method == 'POST':
         value=True

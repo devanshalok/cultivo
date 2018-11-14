@@ -48,13 +48,13 @@ def get_weather(place):
 
 #%%
 #get the current geological conditions of the place within a pd of +-1mths
-def get_soil_info(place):
+def get_soil_info(place,coord):
     def api_for_geocon(place):
         now = datetime.datetime.now()
         start_date=str(now.year)+'-'+str(now.month-1)+'-'+str(now.day)
         end_date=str(now.year)+'-'+str(now.month+1)+'-'+str(now.day)
     #    result=requests.get('https://api.weatherbit.io/v2.0/history/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&start_date='+start_date+'&end_date='+end_date+'&key=283a77fe5cbe46718430e4d5418be6c1')
-        result=requests.get('https://api.weatherbit.io/v2.0/forecast/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&key=283a77fe5cbe46718430e4d5418be6c1')
+        result=requests.get('https://api.weatherbit.io/v2.0/forecast/agweather?lat='+str(coord[0])+'&lon='+str(coord[1])+'&key=3d6dc8552cb74208866db831e6cc7724')
         data=result.json()
         return data
     
