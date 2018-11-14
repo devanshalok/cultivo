@@ -11,5 +11,5 @@ urlpatterns=[
 
     # path(r'signin',views.formentries,name="signin"),
     # path(r'form_signin',views.)
-    # path('contact',views.contactus,name="contact"),
+    # path('upload',views.upload,name="upload"),
 ]

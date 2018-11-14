@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cultivo_main.apps.CultivoMainConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'cultivo.urls'
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
 
 TEMPLATES = [
     {

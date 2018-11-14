@@ -1,4 +1,4 @@
-Index,state,district,crop,org_val,pred_val
+id,state,district,crop,org_val,pred_val
 0,Andhra Pradesh,ANANTAPUR,Bajra,0.872069581818876,0.981706428010824
 1,Andhra Pradesh,ANANTAPUR,Groundnut,0.935359894472111,0.674861603736114
 2,Andhra Pradesh,ANANTAPUR,Jowar,1.00366647152132,1.10777119559127
