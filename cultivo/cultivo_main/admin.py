@@ -21,3 +21,8 @@ class twoAdmin(ImportExportModelAdmin):
 @admin.register(three)
 class threeAdmin(ImportExportModelAdmin):
     pass
+
+@admin.register(pred_three)
+class predthreeAdmin(ImportExportModelAdmin):
+    pass
+

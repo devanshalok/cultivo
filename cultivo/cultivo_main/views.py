@@ -16,6 +16,9 @@ import statistics   #calculate mean
 count=0
 
 
+# =======================================FOR WORK USING THE API OF WEATHER AND SOIL DETAILS=====================================
+
+
 #to get the current temperature and weather information
 def api_for_weather(place):
     result=requests.get('http://api.openweathermap.org/data/2.5/weather?q='+place+'&appid=26215a2614573c7ce3405f3338415d10')
@@ -76,28 +79,7 @@ def print_temp_details(data):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ==========================================MAIN DJANGO VIEWS=============================================
 
 
 
@@ -106,27 +88,51 @@ class TemplateView(generic.TemplateView):
 
 def work(request):
     if request.method=='POST':
-        area=request.POST['area']
-        crop=request.POST['crop']
+        area=request.POST['area'].upper()
+        crop=request.POST['crop'].capitalize()
 
 
         #getting the atmosphere information
-        data=api_for_weather() 
-        coord=calculate_coord(data)                 #getting the json details of the atmosphere
+        data=api_for_weather(area)                  #getting the json details of the atmosphere
+        coord=calculate_coord(data)                 #extracting the coordinates
         soil_info=get_soil_info(area,coord)         #dictionary cointaining soil info
         temp_det=print_temp_details(data)       #converting all the details into proper units for printing
 
 
+        #filtering the objects
+
         first_datset=pred_one.objects.filter(crop=crop)
         sec_datset=prod_area.objects.filter(crop=crop,district=area)
-        # third_datset=one.objects.filter(crop=crop)
-        # four_datset=two.objects.filter(crop=crop,area=area)
+        third_datset=pred_three.objects.filter(crop=crop)
+
+
+        #gettting dictionaries out of the returned values
+
+        fir=list(first_datset.values())[0]['Gross_Production_Value_current_million_US_dollar']
+        first_value={'Gross_Production_Value_current_million_US_dollar':fir}
+
 
         sec_values=list(sec_datset.values())[0]
+        del sec_values['id']
+        del sec_values['org_val']
 
+        third_values=list(third_datset.values())[0]
+        del third_values['id']
+        del third_values['crop']
+
+
+        final_dict={**sec_values,**third_values,**first_value}
+        del final_dict{'id'}
 
 
         
+        # =====================================================for making the final prediction====================================
+        
+
+
+
+
+# ===================================================FOR IMPORTING CSV FILES TO DJANGO DBS============================================
 
 
 def simple_upload(request):
@@ -150,6 +156,10 @@ def simple_upload(request):
 
         if value==False:
             res = three()
+            value=vv(res)
+        
+        if value==False:
+            res = pred_three()
             value=vv(res)
        
     return render(request, 'core/simple_upload.html')
