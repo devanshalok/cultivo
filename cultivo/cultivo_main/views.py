@@ -122,9 +122,12 @@ def work(request):
 
 
         final_dict={**sec_values,**third_values,**first_value}
-        del final_dict{'id'}
+        del final_dict['id']
 
 
+        return render(request,'cultivo_main/index.html')
+    else:
+        raise Http404("You are unauthorised to access this page")
         
         # =====================================================for making the final prediction====================================
         

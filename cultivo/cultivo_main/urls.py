@@ -9,7 +9,7 @@ urlpatterns=[
     path(r'',views.TemplateView.as_view(),name="home"),
     # path(r'contactus',views.TemplateView_con.as_view(),name="contact"),
 
-    # path(r'signin',views.formentries,name="signin"),
+    path(r'result',views.work,name="result"),
     # path(r'form_signin',views.)
     # path('upload',views.upload,name="upload"),
 ]
