@@ -20,3 +20,6 @@ class two(resources.ModelResource):
 class three(resources.ModelResource):
     class Meta:
         model = three
+class pred_three(resources.ModelResource):
+    class Meta:
+        model = pred_three
