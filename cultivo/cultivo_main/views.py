@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from .models import *
+from cultivo_main.models import *
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
@@ -21,6 +21,7 @@ count=0
 
 #to get the current temperature and weather information
 def api_for_weather(place):
+    
     result=requests.get('http://api.openweathermap.org/data/2.5/weather?q='+place+'&appid=26215a2614573c7ce3405f3338415d10')
     data=result.json()
     return data
@@ -64,18 +65,51 @@ def get_soil_info(place,coord):
 
 
 def print_temp_details(data):
+       
+       temp=precise((data['main']['temp']-273.15),1)
+       wind=precise((data['wind']['speed']*1.60934),2)
+       dire=precise((data['wind']['deg']),2)
+
        values={
-               'temperature':str(data['main']['temp']-273.15)+' Celcius',
+               'temperature':str(temp),
                'latitude':str(data['coord']['lat']),
                'longitude':str(data['coord']['lon']),
-               'humidity':str(data['main']['humidity'])+' %',
-               'pressure':str(data['main']['pressure'])+' hPa',
-               'wind-speed':str(data['wind']['speed']*1.60934)+' kmph',
-               'wind-direction':str(data['wind']['deg'])+' degrees',
-               'visibility':str(data['visibility'])+' metres',
+               'humidity':str(data['main']['humidity'])+'%',
+               'pressure':str(data['main']['pressure'])+'hPa',
+               'windspeed':str(wind)+'km/h',
+               'winddirection':str(dire)+' degrees'
+            #    'visibility':str(data['visibility'])+' metres',
                }
        
        return values
+
+
+
+def precise(data,point):
+    if type(data)==dict:
+        a={}
+        for i in data:
+            if type(data[i])==float:
+                data[i]=round(data[i],point)
+                a[i]=data[i]
+            else:
+                a[i]=data[i]
+    
+    if type(data)==float:
+        return round(data,point)
+    
+    if type(data)==list:
+        a=[]
+        for i in data:
+            if type(i)==float:
+                i=round(i,point)
+                print(i)
+                a.append(i)
+            else:
+                a.append(i)
+    return a
+
+
 
 
 
@@ -98,15 +132,17 @@ def work(request):
         soil_info=get_soil_info(area,coord)         #dictionary cointaining soil info
         temp_det=print_temp_details(data)       #converting all the details into proper units for printing
 
+        # soil_info_2=precise(soil_info,2)
+        # temp_det_2=precise(temp_det,1)
 
-        #filtering the objects
+        # filtering the objects
 
         first_datset=pred_one.objects.filter(crop=crop)
         sec_datset=prod_area.objects.filter(crop=crop,district=area)
         third_datset=pred_three.objects.filter(crop=crop)
 
 
-        #gettting dictionaries out of the returned values
+        # #gettting dictionaries out of the returned values
 
         fir=list(first_datset.values())[0]['Gross_Production_Value_current_million_US_dollar']
         first_value={'Gross_Production_Value_current_million_US_dollar':fir}
@@ -122,10 +158,10 @@ def work(request):
 
 
         final_dict={**sec_values,**third_values,**first_value}
-        del final_dict['id']
+        # del final_dict['id']
 
-
-        return render(request,'cultivo_main/index.html')
+        valll=precise(first_value,2)
+        return render(request,'cultivo_main/index.html',{'first':first_value,'second':sec_values,'third':third_values, 'temp_det':temp_det,'final':valll})
     else:
         raise Http404("You are unauthorised to access this page")
         
