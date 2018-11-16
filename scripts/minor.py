@@ -20,20 +20,20 @@ def get_weather(place):
         data=result.json()
         return data
     
-#    def print_temp_details(data):
-#        values={
-#                'temperature':str(data['main']['temp']-273.15)+' Celcius',
-#                'latitude':str(data['coord']['lat']),
-#                'longitude':str(data['coord']['lon']),
-#                'humidity':str(data['main']['humidity'])+' %',
-#                'pressure':str(data['main']['pressure'])+' hPa',
-#                'wind-speed':str(data['wind']['speed']*1.60934)+' kmph',
-#                'wind-direction':str(data['wind']['deg'])+' degrees',
-#                'visibility':str(data['visibility'])+' metres',
-#                }
-#        
-#        for key in values:
-#            print(key+' : '+values[key])
+    def print_temp_details(data):
+        values={
+                'temperature':str(data['main']['temp']-273.15)+' Celcius',
+                'latitude':str(data['coord']['lat']),
+                'longitude':str(data['coord']['lon']),
+                'humidity':str(data['main']['humidity'])+' %',
+                'pressure':str(data['main']['pressure'])+' hPa',
+                'wind-speed':str(data['wind']['speed']*1.60934)+' kmph',
+                'wind-direction':str(data['wind']['deg'])+' degrees',
+                'visibility':str(data['visibility'])+' metres',
+                }
+        
+        for key in values:
+            print(key+' : '+values[key])
         
     def calculate_coord(data):
         coord=[data['coord']['lat'],data['coord']['lon']]
@@ -41,7 +41,7 @@ def get_weather(place):
     
     
     data=api_for_weather(place)
-#    print_temp_details(data)
+    print_temp_details(data)
     coord=calculate_coord(data)
 #    print('coordinates of {0}: {1}'.format(place,coord))
     return coord    

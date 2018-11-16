@@ -59,3 +59,13 @@ class three(models.Model):
 
     def __str__(self):
     	return self.crop
+
+
+class pred_three(models.Model):
+    crop=models.CharField(max_length=15)
+    imports=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    exports=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    production=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+
+    def __str__(self):
+    	return self.crop
