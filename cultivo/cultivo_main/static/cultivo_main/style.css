@@ -33,19 +33,22 @@ audio:not([controls]) {
   display: none; }
 
 html {
-  background: #fff;
-  color: #000;
+  
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-   table {
-    font-family: arial, sans-serif;
+  table {
+
+font-weight: bold;
+font-family: 'Pathway Gothic One', sans-serif;
+ font-size: 20px;
     border-collapse: collapse;
     
 }
 
 td, th {
     border: 1px ;
+    font-weight: bold;
     text-align: center;
     padding: 8px;
 }
@@ -224,12 +227,14 @@ html {
   font-size: 14px; }
 
 body {
-  color: #ffdab9;
-  font-family: "Roboto", "Open Sans", sans-serif;
+  background-image: url('sun.jpg');
+  background-size: cover;
+  color: #fffdd0;
+font-family: 'Pathway Gothic One', sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background: #556b2f; }
+   }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -978,12 +983,12 @@ form textarea {
       margin-bottom: 5px;
       font-size: 16px;
       font-size: 1.1428571429em;
-      color: white; }
+      color: #fffdd0; }
     .site-header .branding .site-description {
       font-size: 10px;
       font-size: 0.7142857143em;
       display: block;
-      color: #bfc1c8; }
+      color:#fffdd0; }
 
 
 .forecast-container {
@@ -992,7 +997,6 @@ form textarea {
   table-layout: fixed;
   width: 100%;
   overflow: hidden;
-  border-radius: 10px;
   margin-top: -150px;
   margin-bottom: 50px; }
   .forecast-container .forecast {
@@ -1044,7 +1048,7 @@ form textarea {
           display: block;
           width: 100%; } }
     .forecast-container .forecast .forecast-header {
-      background: #556b2f;
+    
       padding: 10px;
       text-align: center;
       font-weight: 400; }
@@ -1058,7 +1062,7 @@ form textarea {
       .forecast-container .forecast .forecast-content .degree {
         font-size: 24px;
         font-size: 1.7142857143em;
-        color: white;
+        color: #fffdd0;
         font-weight: 700; }
       .forecast-container .forecast .forecast-content small {
         font-size: 16px;
@@ -1070,5 +1074,5 @@ form textarea {
     font-size: 36px;
     font-size: 2.5714285714em;
     font-weight: 300;
-    color: white; }
+    color: ; }
 
