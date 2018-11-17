@@ -67,6 +67,9 @@ class pred_three(models.Model):
     imports=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
     exports=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
     production=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    production_mean=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    imports_mean=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    exports_mean=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
 
     def __str__(self):
     	return self.crop
