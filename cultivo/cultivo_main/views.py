@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from cultivo_main.models import *
+from .models import *
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
@@ -110,8 +110,12 @@ def precise(data,point):
     return a
 
 
-
-
+def categorize(val1,val2):
+    if val1>val2:
+            p1=precise((val2/val1),2)
+    else:
+        p1=1.00
+    return p1
 
 # ==========================================MAIN DJANGO VIEWS=============================================
 
@@ -144,8 +148,8 @@ def work(request):
 
         # #gettting dictionaries out of the returned values
 
-        fir=list(first_datset.values())[0]['Gross_Production_Value_current_million_US_dollar']
-        first_value={'Gross_Production_Value_current_million_US_dollar':fir}
+        fir=list(first_datset.values())[0]['Gross_Production_Value_constant_2004_2006_million_US_dollar']
+        first_value={'Gross_Production_Value_constant_2004_2006_million_US_dollar':fir}
 
 
         sec_values=list(sec_datset.values())[0]
@@ -161,12 +165,71 @@ def work(request):
         # del final_dict['id']
 
         valll=precise(first_value,2)
-        return render(request,'cultivo_main/index.html',{'first':first_value,'second':sec_values,'third':third_values, 'temp_det':temp_det,'final':valll})
+
+
+
+        # finding the final % success and failure
+
+# handling prod_area factor
+        sec_val=list(sec_datset.values())[0] 
+        val1=sec_val['org_val']
+        val2=sec_val['pred_val']
+
+        p1=categorize(val1,val2)
+
+#handing the  Gross_Production_Value_current_million_US_dollar factor
+        fir1=list(first_datset.values())[0]['Gross_Production_Value_constant_2004_2006_million_US_dollar']
+        fir2=list(first_datset.values())[0]['org_mean_Gross_Production_Value_constant_2004_2006_million_US_dollar']
+        fir_value={'gpv':fir}
+        fir_value={'mean_gpv':fir2}
+
+
+        val1=fir_value['gpv']
+        val2=fir_value['mean_gpv']
+
+        p2=categorize(val1,val2)
+        
+# handling the imports exports and production factors
+        fir1=list(third_datset.values())[0]
+
+        val1=fir1['exports']
+        val2=fir1['imports']
+        val3=fir1['production']
+
+        val1_p=fir1['exports_mean']
+        val2_p=fir1['imports_mean']
+        val3_p=fir1['production_mean']
+
+        p3=categorize(val1,val1_p)
+        p4=categorize(val2,val2_p)
+        p5=categorize(val3,val3_p)
+
+
+        final_outcome=precise((statistics.mean([p1+p2+p3+p4+p5])),2)
+
+
+
+        return render(request,'cultivo_main/testing.html',{'first':valll,'second':sec_values,'third':third_values, 'temp_det':temp_det,'final':final_dict,'soil':soil_info,'finalout':final_outcome})
     else:
         raise Http404("You are unauthorised to access this page")
         
         # =====================================================for making the final prediction====================================
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

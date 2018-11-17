@@ -19,7 +19,6 @@
 		<![endif]-->
 
 
-temp_det
 
 
 
@@ -36,21 +35,18 @@ temp_det
 				<div class="container">
 					<div class="forecast-container">
 						<div class="today forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div> <!-- .forecast-header -->
+							 <!-- .forecast-header -->
 							<div class="forecast-content">
 								<div class="degree">
-									<div class="num">{{first.temperature}} <sup>o</sup>C</div>
+									<div class="num">{{temp_det.temperature}} <sup>o</sup>C</div>
 									
 								</div>
 								<span><img src="{% static 'cultivo_main/icon-umberella.png' %}" alt="">{{temp_det.humidity}}</span>
 								<span><img src="{% static 'cultivo_main/icon-wind.png'%}" alt="">{{temp_det.windspeed}}</span>
 								<span><img src="{% static 'cultivo_main/icon-compass.png'%}" alt="">{{temp_det.winddirection}}</span>
-								<span><img src="{% static 'cultivo_main/icon-umberella.png' %}" alt="">{{temp_det.humidity}}</span>
-								<span><img src="{% static 'cultivo_main/icon-wind.png'%}" alt="">{{temp_det.windspeed}}</span>
-								<span><img src="{% static 'cultivo_main/icon-compass.png'%}" alt="">{{temp_det.winddirection}}</span>
+								<span><img src="{% static 'cultivo_main/icon-umberella.png' %}" alt="">{{temp_det.pressure}}</span>
+								<span><img src="{% static 'cultivo_main/icon-wind.png'%}" alt="">{{temp_det.latitude}}<sup>o</span>
+								<span><img src="{% static 'cultivo_main/icon-compass.png'%}" alt="">{{temp_det.longitude}}<sup>o</span>
 							</div>
 						</div>
 						<div class="forecast">
@@ -58,18 +54,15 @@ temp_det
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
 								
-								<div class="degree">Area:</div><br>
-								<div class="degree">Crop:</div><br>
-								<div class="degree">State:</div><br>
+								<div class="degree">Area:</div>{{final.district}}<br>
+								<div class="degree">Crop:</div>{{final.crop}}<br>
+								<div class="degree">State:</div>{{final.state}}<br>
 							
 							</div>
 						</div>
 
 						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div> <!-- .forecast-header -->
+							<!-- .forecast-header -->
 							<div class="forecast-content">
 								
 								<div class="degree">GNP:</div><br>
@@ -108,8 +101,6 @@ temp_det
 
 </table>
 </div>
-
-
 
 
 
