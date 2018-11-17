@@ -9,6 +9,7 @@ class pred_one(models.Model):
     Gross_Production_Value_constant_2004_2006_million_SLC=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
     Gross_Production_Value_current_million_US_dollar=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
     Gross_Production_Value_constant_2004_2006_million_US_dollar=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
+    org_mean_Gross_Production_Value_constant_2004_2006_million_US_dollar=models.DecimalField(max_digits=12,decimal_places=4,default=0.0)
 
     def __str__(self):
     	return self.crop
