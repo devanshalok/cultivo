@@ -7,6 +7,8 @@
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ask Me!</label>
         <!-- <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
+        <form id="form" name="sendreq" action='{% url 'cultivo_main:result' %}' method='post'>
+        {% csrf_token %}
         <div class="login-form">
             <div class="sign-in-htm">
                 <div class="group">
@@ -24,31 +26,9 @@
                 <div class="hr"  style='margin-top:-1%;'></div>
                 
             </div>
-            </div>
+            </div></form>
             </div></div>
 
 
-
-
-<!-- 
-
-
-  <script>    
-
-    $(document).ready(function() {
-
-    $('input').blur(function() {
-
-    // check if the input has any value (if we've typed into it)
-    if ($(this).val())
-        $(this).addClass('used');
-    else
-        $(this).removeClass('used');
-    });
-
-    });
-
-</script>
- -->
 
 {% endblock %}
