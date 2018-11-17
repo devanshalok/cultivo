@@ -38,6 +38,19 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
+   table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    
+}
+
+td, th {
+    border: 1px ;
+    text-align: center;
+    padding: 8px;
+}
+}
+
 html,
 button,
 input,
@@ -1031,7 +1044,7 @@ form textarea {
           display: block;
           width: 100%; } }
     .forecast-container .forecast .forecast-header {
-      background: rgba(0, 0, 0, 0.1);
+      background: #556b2f;
       padding: 10px;
       text-align: center;
       font-weight: 400; }
