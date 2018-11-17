@@ -1,3 +1,4 @@
+  {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,14 +8,22 @@
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Poppins" rel="stylesheet">
+    	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="{% static 'cultivo_main/style.css' %}">
 		
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
+
+
+temp_det
+
+
+
+
 
 	</head>
 	<body>
@@ -33,21 +42,16 @@
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
 								<div class="degree">
-									<div class="num">23<sup>o</sup>C</div>
+									<div class="num">{{first.temperature}} <sup>o</sup>C</div>
+									
 								</div>
-								<span><img src="icon-umberella.png" alt="">20%</span>
-								<span><img src="icon-wind.png" alt="">18km/h</span>
-								<span><img src="icon-compass.png" alt="">East</span><br><br>
-								<span><img src="icon-umberella.png" alt="">20%</span>
-								<span><img src="icon-wind.png" alt="">18km/h</span>
-								<span><img src="icon-compass.png" alt="">East</span>
-
+								<span><img src="{% static 'cultivo_main/icon-umberella.png' %}" alt="">{{temp_det.humidity}}</span>
+								<span><img src="{% static 'cultivo_main/icon-wind.png'%}" alt="">{{temp_det.windspeed}}</span>
+								<span><img src="{% static 'cultivo_main/icon-compass.png'%}" alt="">{{temp_det.winddirection}}</span>
 							</div>
 						</div>
 						<div class="forecast">
 							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
 								
@@ -57,53 +61,12 @@
 							
 							</div>
 						</div>
-
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								
-								<div class="degree">GNP:</div><br>
-								<div class="degree">C:</div><br>
-								<div class="degree">A:</div><br>
-							
-							</div>
-						</div>
 						
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-<body>
-<div class="container" style="margin-left: 400px">
-<table >
-  <tr>
-    <th>Soil cond</th>
-    <th>A</th>
-    <th>C</th>
-    <th>V</th>
-    <th>Con</th>
-    <th>Coun</th>
-  </tr>
-  <tr>
-    <td>Alfreds F</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-     <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-
-</table>
-</div>
-
-
-
 			<main class="main-content">
 				<div class="fullwidth-block">
 					<div class="container">
@@ -112,11 +75,9 @@
 					</div>
 				</div>
 
-
-
-
 				<div>
 					<p style="text-align: center; font-size: 50px">Is The Crop profitable? : </p>
+
 				</div>
 
 
@@ -128,19 +89,21 @@
 								<div class="news">
 									<div class="date"></div>
 									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo saepe assumenda dolorem modi, expedita voluptatum ducimus necessitatibus. Asperiores quod reprehenderit necessitatibus harum, mollitia, odit et consequatur maxime nisi amet doloremque.</p>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="news">
 									<div class="date"></div>
 									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
-									
+									<p>Nobis architecto consequatur ab, ea, eum autem aperiam accusantium placeat vitae facere explicabo temporibus minus distinctio cum optio quis, dignissimos eius aspernatur fuga. Praesentium totam, corrupti beatae amet expedita veritatis.</p>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="news">
 									<div class="date"></div>
 									<h3><a href="#">Doloremque laudantium totam sequi </a></h3>
+									<p>Enim impedit officiis placeat qui recusandae doloremque possimus, iusto blanditiis, quam optio delectus maiores. Possimus rerum, velit cum natus eos. Cumque pariatur beatae asperiores, esse libero quas ad dolorem. Voluptates.</p>
 								</div>
 							</div>
 						</div>

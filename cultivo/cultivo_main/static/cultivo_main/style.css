@@ -38,19 +38,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    
-}
-
-td, th {
-    border: 1px ;
-    text-align: center;
-    padding: 8px;
-}
-}
-
 html,
 button,
 input,
@@ -992,6 +979,7 @@ form textarea {
   table-layout: fixed;
   width: 100%;
   overflow: hidden;
+  border-radius: 10px;
   margin-top: -150px;
   margin-bottom: 50px; }
   .forecast-container .forecast {
@@ -1043,7 +1031,7 @@ form textarea {
           display: block;
           width: 100%; } }
     .forecast-container .forecast .forecast-header {
-      background: #556b2f;
+      background: rgba(0, 0, 0, 0.1);
       padding: 10px;
       text-align: center;
       font-weight: 400; }
